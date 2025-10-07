@@ -21,7 +21,7 @@ async def create_task(new_task: Todo):
         return {"status_code":200, "id":str(resp.inserted_id)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Something went wrong {e}")
-
+ 
 
 app.include_router(router)
 

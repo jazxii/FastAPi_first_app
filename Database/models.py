@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
+from typing import Optional
 
 class Todo(BaseModel):
     title: str
@@ -8,3 +9,9 @@ class Todo(BaseModel):
     is_deleted: bool = Field(default=False)
     creation: int = int( datetime.timestamp(datetime.now()) )
     update: int = int( datetime.timestamp(datetime.now()) )
+
+class TodoUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    is_completed: Optional[bool] = None
+    is_deleted: Optional[bool] = None
